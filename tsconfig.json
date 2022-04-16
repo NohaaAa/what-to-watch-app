@@ -1,5 +1,38 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@images/*": [
+        "public/images/*"
+      ],
+      "@app-redux/*": [
+        "src/redux/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@interfaces/*": [
+        "src/interfaces/*"
+      ],
+      "@utilities/*": [
+        "src/utilities/*"
+      ],
+      "@environments/*": [
+        "src/environments/*"
+      ]
+    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
