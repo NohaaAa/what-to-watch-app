@@ -1,32 +1,33 @@
 import React from 'react';
 import {NextComponentType} from 'next';
 import styles from '@styles/components/SideMenu.module.scss';
+import buttonStyles from '@styles/components/Buttons.module.scss';
 import Image from 'next/image';
 import logo from '@images/logo.svg';
-import homeIcon from '@images/icon-nav-home.svg';
-import moviesIcon from '@images/icon-nav-movies.svg';
-import tvSeriesIcon from '@images/icon-nav-tv-series.svg';
-import bookmarkedIcon from '@images/icon-nav-bookmark.svg';
+import MoviesNavIcon from '@images/icon-nav-movies.svg';
+import TvSeriesNavIcon from '@images/icon-nav-tv-series.svg';
+import BookmarkedNavIcon from '@images/icon-nav-bookmark.svg';
 import userAvatar from '@images/image-avatar.png';
+import HomeNavIcon from '@images/icon-nav-home.svg';
 
 const SideMenu:NextComponentType = () => {
     return (
         <div className={styles.sideMenuContainer}>
             <div className={styles.logoWrapper}>
-                <Image src={logo} />
+                {/*<Image src={logo} />*/}
             </div>
             <div className={styles.menuIconsWrapper}>
-                <button className={}>
-                    <Image src={homeIcon} />
+                <button className={`${buttonStyles.btn} ${buttonStyles.btnIcon}`}>
+                    <HomeNavIcon />
                 </button>
                 <div>
-                    <Image src={moviesIcon} />
+                    <MoviesNavIcon />
                 </div>
                 <div>
-                    <Image src={tvSeriesIcon} />
+                    <TvSeriesNavIcon />
                 </div>
                 <div>
-                    <Image src={bookmarkedIcon} />
+                    <BookmarkedNavIcon />
                 </div>
             </div>
             <div className={styles.userImageWrapper}>
