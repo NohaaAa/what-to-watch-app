@@ -6,8 +6,13 @@ import SideMenu from '@components/side-menu';
 const AppWrapper: NextComponentType = ({ children }) => {
     return (
         <div className={styles.mainContainer}>
-            <SideMenu/>
-            {children}
+            <div>
+                <SideMenu/>
+            </div>
+            <div className={styles.contentWrapper}>
+                {children}
+            </div>
+
         </div>
     );
 };

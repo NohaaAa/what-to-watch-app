@@ -1,25 +1,63 @@
 .sideMenuContainer {
   width: 96px;
   height: 100vh;
+  z-index: 1;
+  top: 32px;
+  left: 32px;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 35px 28px;
   border-radius: 20px;
-  background-color: var(--semi-dark-blue);
+  background-color: #161d2fe6;
   gap: 75px;
+  @media (max-width: 768px) {
+    flex-direction: row;
+    width: 90%;
+    height: 72px;
+    padding: 21px 16px 19px 24px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    left: 25px;
+    backdrop-filter: blur(30px);
+  }
+  @media(max-width: 375px) {
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
   .menuIconsWrapper {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    @media (max-width: 768px) {
+      flex-direction: row;
+      gap: 32px;
+    }
+    @media(max-width: 375px) {
+      gap: 24px;
+    }
   }
   .userImageWrapper {
     display: flex;
     align-items: flex-end;
     height: 100%;
+    @media (max-width: 768px) {
+      width: 32px;
+      height: 32px;
+    }
+    @media(max-width: 375px) {
+      width: 24px;
+      height: 24px;
+    }
     img {
       border: 1px solid var(--pure-white) !important;
       border-radius: 50%;
+    }
+    @media (max-width: 768px) {
+      align-items: flex-start;
     }
   }
 }

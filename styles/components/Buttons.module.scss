@@ -18,8 +18,9 @@
   &.btnIcon {
     background-color: transparent;
     svg {
+      fill: var(--greyish-blue);
       &:hover {
-        fill: var(--red);
+        fill: var(--pure-white);
       }
     }
     &.active {
