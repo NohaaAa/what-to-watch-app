@@ -1,6 +1,6 @@
 .sideMenuContainer {
   width: 96px;
-  height: 100vh;
+  height: calc(100vh - 64px);
   z-index: 1;
   top: 32px;
   left: 32px;
