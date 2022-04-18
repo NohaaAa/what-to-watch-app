@@ -11,31 +11,6 @@ const AppWrapper: NextComponentType = ({ children }) => {
             </div>
             <div className={styles.contentWrapper}>
                 {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
-                {children}
             </div>
 
         </div>
