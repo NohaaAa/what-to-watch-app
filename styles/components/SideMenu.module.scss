@@ -11,6 +11,7 @@
   padding: 35px 28px;
   border-radius: 20px;
   background-color: #161d2fe6;
+  backdrop-filter: blur(5px);
   gap: 75px;
   @media (max-width: 768px) {
     flex-direction: row;
