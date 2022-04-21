@@ -42,17 +42,18 @@
     }
   }
   &.btnPlay {
-    width: 255px;
-    height: 174px;
+    width: 117px;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 29px;
     color: var(--pure-white);
+    background-color: #ffffff40;
     span {
       font-size: 18px;
       font-weight: 500;
+      margin-left: 18px;
     }
   }
 }

@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import MovieCard from '@components/movie-card';
 const Home: NextPage = () => {
   return (
     <div>
@@ -10,7 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="./favicon.ico" />
       </Head>
         <div>
-            <h1>Hello</h1>
+            <MovieCard/>
         </div>
     </div>
   )
