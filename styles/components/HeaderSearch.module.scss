@@ -1,0 +1,18 @@
+.headerSearchContainer {
+  .headerSearchInput {
+    position: relative;
+    input {
+      font-size: 24px;
+      border-bottom: none !important;
+      @media(max-width: 375px) {
+        font-size: 16px;
+        //width: 85%;
+      }
+      &:focus-visible {
+        border-bottom: 1px solid var(--greyish-blue) !important;
+        padding-bottom: 15px;
+        align-self: flex-end;
+      }
+    }
+  }
+}

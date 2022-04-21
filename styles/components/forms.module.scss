@@ -1,0 +1,40 @@
+.formControl {
+  border: none;
+  border-bottom: 1px solid var(--greyish-blue);
+  background: transparent;
+  color: var(--pure-white);
+  opacity: 0.5;
+  padding: 16px;
+  font-weight: 300;
+  font-size: 15px;
+  width: 100%;
+  &:focus-visible {
+    opacity: 1;
+    outline: none;
+    border-bottom: 1px solid var(--pure-white);
+  }
+}
+.formError {
+  border-bottom: 1px solid var(--red);
+  position: relative;
+}
+.formWithPrefix {
+  display: flex;
+  align-items: center;
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--pure-white);
+    @media(max-width: 375px) {
+      width: 18px !important;
+      height: 18px;
+    }
+  }
+}
+.withSuffix {
+  position: absolute;
+  right: 17px;
+  bottom: 18px;
+  font-size: 13px;
+  color: var(--red);
+}

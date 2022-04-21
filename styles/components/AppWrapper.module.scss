@@ -10,10 +10,10 @@
     background-color: var(--dark-blue);
     color: var(--pure-white);
     @media(max-width: 768px) {
-      padding: 25px;
+      padding: 140px 25px 25px;
     }
     @media(max-width: 375px) {
-      padding: 0 16px;
+      padding: 98px 16px 16px;
     }
   }
 }
