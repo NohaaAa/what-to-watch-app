@@ -1,0 +1,90 @@
+.trendingCardContainer {
+  width: 470px;
+  height: 230px;
+  position: relative;
+  cursor: pointer;
+  @media(max-width: 375px) {
+    width: 240px;
+    height: 140px;
+  }
+  .trendingCardImg {
+    width: 470px;
+    height: 230px;
+    @media(max-width: 375px) {
+      width: 240px;
+      height: 140px;
+    }
+    img {
+      width: 100%;
+      height: 100% !important;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+  .trendingCardOverlayWrapper {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+    padding: 16px 24px 24px;
+    @media(max-width: 375px) {
+      padding: 8px 16px 16px;
+    }
+    .trendingCardAttributes {
+      .movieTitle {
+        margin: 0 !important;
+        font-weight: 500;
+        @media(max-width: 375px) {
+          font-size: 15px;
+        }
+      }
+      .cardAttributes {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li {
+          color: var(--pure-white);
+          opacity: 0.75;
+          font-size: 15px;
+          font-weight: 300;
+          @media(max-width: 375px) {
+            font-size: 12px;
+          }
+
+          svg {
+            fill: var(--pure-white);
+            opacity: 0.75;
+            margin-right: 6px;
+          }
+
+          span {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+    .movieBookmark {
+      z-index: 2;
+      align-self: flex-end;
+      &:hover {
+        svg path {
+          stroke: var(--dark-blue) !important;
+        }
+      }
+
+      svg {
+        fill: none;
+      }
+    }
+  }
+}

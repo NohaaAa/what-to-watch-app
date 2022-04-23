@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import MovieCard from '@components/movie-card';
+import TrendingCard from '@components/trending-card';
 const Home: NextPage = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
       </Head>
         <div>
             <MovieCard/>
+            <TrendingCard/>
         </div>
     </div>
   )
