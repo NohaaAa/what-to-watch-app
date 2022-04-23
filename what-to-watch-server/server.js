@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 // const uploadImage = require("./routes/image");
 const users = require("./routes/user");
-// const auth = require("./routes/auth").router;
+const auth = require("./routes/auth");
 const bodyParser = require("body-parser");
 
 dotenv.config();
@@ -21,10 +21,10 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use(express.json());
+app.use("/api/auth/", auth);
 // app.use('/uploads',express.static(__dirname + '/uploads'));
 // app.use("/api/images/", uploadImage);
 // app.use("/api/users/", users);
-// app.use("/api/auth/", auth);
 
 app.listen(process.env.PORT || 5000, () => {
     console.log("server is running");
