@@ -1,0 +1,42 @@
+.signupContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .signupWrapper {
+    width: 400px;
+    @media(max-width: 768px) {
+      width: 100%;
+      min-width: 100%;
+    }
+    height: 418px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    margin: 83px 0 0;
+    padding: 32px;
+    border-radius: 20px;
+    background-color: var(--semi-dark-blue);
+    h1 {
+      margin: 0 0 40px;
+      font-size: 32px;
+      font-weight: 300;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .haveAccount {
+      margin: 24px 0 0 0;
+      text-align: center;
+      a {
+        color: var(--red);
+        margin-left: 8px;
+        font-weight: 300;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
