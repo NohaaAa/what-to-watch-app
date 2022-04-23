@@ -16,14 +16,14 @@ const MovieCard:NextComponentType<NextPageContext,
             <button className={`${buttonStyles.btnRounded} ${buttonStyles.btn} ${styles.movieBookmark}`}>
                 <BookmarkIcon/>
             </button>
-            <div className={styles.cardOverlay}>
-                <button className={`${buttonStyles.btnPlay} ${buttonStyles.btn}`}>
-                    <PlayIcon/>
-                    <span>Play</span>
-                </button>
-            </div>
             <div className={styles.movieCardImg}>
-                <Image src={movieImg} alt='movie'/>
+                <div className={styles.cardOverlay}>
+                    <button className={`${buttonStyles.btnPlay} ${buttonStyles.btn}`}>
+                        <PlayIcon/>
+                        <span>Play</span>
+                    </button>
+                </div>
+                <Image src={movieImg} alt='movie' layout={'responsive'}/>
             </div>
             <div className={styles.movieCardBody}>
                 <ul className={styles.movieAttributes}>

@@ -1,5 +1,5 @@
 .movieCardContainer {
-  width: 280px;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -10,7 +10,6 @@
       visibility: visible;
     }
   }
-
   .cardOverlay {
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.5);
@@ -18,14 +17,16 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 174px;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
     transition: all ease 100ms;
     visibility: hidden;
-
+    @media(max-width: 768px) {
+      display: none;
+    }
     button {
       position: relative;
     }
@@ -34,6 +35,15 @@
   .movieCardImg {
     width: 280px;
     height: 174px;
+    position: relative;
+    @media(max-width: 768px) {
+      width: 220px;
+      height: 140px;
+    }
+    @media(max-width: 375px) {
+      width: 164px;
+      height: 110px;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -58,6 +68,9 @@
         opacity: 0.75;
         font-size: 13px;
         font-weight: 300;
+        @media(max-width: 375px) {
+          font-size: 11px;
+        }
 
         svg {
           fill: var(--pure-white);
@@ -74,6 +87,9 @@
     .movieTitle {
       margin: 5px auto 0;
       font-weight: 500;
+      @media(max-width: 375px) {
+        font-size: 14px;
+      }
     }
   }
 
