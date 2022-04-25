@@ -23,6 +23,8 @@ router.put("/update", verifyTokenAndAuthorization, async (req, res) => {
     }
 });
 
+//TODO: get user's bookmarked items list
+//GET
 //DELETE
 
 //GET
