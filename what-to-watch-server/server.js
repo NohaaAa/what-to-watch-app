@@ -7,6 +7,8 @@ const morgan = require('morgan');
 const users = require("./routes/user");
 const auth = require("./routes/auth");
 const movie = require("./routes/movies");
+const series = require("./routes/series");
+
 const bodyParser = require("body-parser");
 
 dotenv.config();
@@ -29,6 +31,7 @@ app.use(express.json());
 
 app.use("/api/auth/", auth);
 app.use("/api/movies/", movie);
+app.use("/api/series/", series);
 // app.use('/uploads',express.static(__dirname + '/uploads'));
 // app.use("/api/images/", uploadImage);
 app.use("/api/users/", users);

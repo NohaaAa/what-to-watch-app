@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Movie = require("../models/Movie");
-const {verifyTokenAndAuthorization} = require("../verifyToken");
+const {verifyToken} = require("../verifyToken");
 
 //CREATE new movie (one or list)
 router.post('/', async(req, res)=> {
@@ -36,7 +36,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //GET get movie by id
-router.get("/:id", verifyTokenAndAuthorization, async (req, res) => {
+router.get("/:id", verifyToken, async (req, res) => {
     try {
         const movie = await Movie.findById(req.params.id);
         res.status(200).json(movie);
@@ -46,7 +46,7 @@ router.get("/:id", verifyTokenAndAuthorization, async (req, res) => {
 });
 
 //GET get all movies
-router.get('/', verifyTokenAndAuthorization, async(req, res)=> {
+router.get('/', verifyToken, async(req, res)=> {
     try {
         const movies = await Movie.find();
         res.status(201).json(movies);
