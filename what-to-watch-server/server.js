@@ -8,13 +8,23 @@ const users = require("./routes/user");
 const auth = require("./routes/auth");
 const movie = require("./routes/movies");
 const series = require("./routes/series");
+const lists = require("./routes/lists");
 
 const bodyParser = require("body-parser");
 
 dotenv.config();
-morgan(':method :url :status :res[content-length] - :response-time ms');
 
-app.use(morgan('tiny'));
+app.use(
+    morgan(function (tokens, req, res) {
+        return [
+            tokens.method(req, res),
+            tokens.url(req, res),
+            tokens.status(req, res),
+            tokens.res(req, res, 'content-length'), '-',
+            tokens['response-time'](req, res), 'ms'
+        ].join(' ')
+    })
+);
 
 mongoose
     .connect(process.env.MONGO_URL)
@@ -32,6 +42,7 @@ app.use(express.json());
 app.use("/api/auth/", auth);
 app.use("/api/movies/", movie);
 app.use("/api/series/", series);
+app.use("/api/lists/", lists);
 // app.use('/uploads',express.static(__dirname + '/uploads'));
 // app.use("/api/images/", uploadImage);
 app.use("/api/users/", users);
