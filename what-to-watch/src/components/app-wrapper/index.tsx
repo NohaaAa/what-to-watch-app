@@ -1,17 +1,25 @@
 import React from 'react';
-import { NextComponentType } from 'next';
+import {NextComponentType} from 'next';
 import styles from "@styles/components/AppWrapper.module.scss";
 import SideMenu from '@components/side-menu';
 import HeaderSearch from '@components/header-search';
+import {useRouter} from 'next/router';
 
-const AppWrapper: NextComponentType = ({ children }) => {
+const AppWrapper: NextComponentType = ({children}) => {
+    const router = useRouter();
+
     return (
         <div className={styles.mainContainer}>
-            <div>
-                <SideMenu/>
-            </div>
+            {router.asPath !== '/login' && router.asPath !== '/signup' &&
+                <div>
+                    <SideMenu/>
+                </div>
+            }
             <div className={styles.contentWrapper}>
-                <HeaderSearch/>
+                {
+                    router.asPath !== '/login' && router.asPath !== '/signup' &&
+                    <HeaderSearch/>
+                }
                 {children}
             </div>
 
