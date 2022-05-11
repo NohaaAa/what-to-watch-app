@@ -1,13 +1,17 @@
 import '@styles/globals.scss'
 import type { AppProps } from 'next/app'
 import AppWrapper from '@components/app-wrapper';
+import {Provider} from 'react-redux';
+import {store, wrapper} from '@app-redux/store';
 
 function WhatToWatchApp({ Component, pageProps }: AppProps) {
   return (
-      <AppWrapper>
-        <Component {...pageProps} />
-      </AppWrapper>
+      <Provider store={store}>
+          <AppWrapper>
+              <Component {...pageProps} />
+          </AppWrapper>
+      </Provider>
   )
 }
 
-export default WhatToWatchApp;
+export default wrapper.withRedux(WhatToWatchApp);
