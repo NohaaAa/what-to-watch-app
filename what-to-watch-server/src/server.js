@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
+const cors = require("cors");
 const dotenv = require("dotenv");
 const morgan = require('morgan');
+const MongoClient = require("mongodb").MongoClient;
 // const uploadImage = require("./routes/image");
 const users = require("./routes/user");
 const auth = require("./routes/auth");
@@ -13,6 +14,15 @@ const lists = require("./routes/lists");
 const bodyParser = require("body-parser");
 
 dotenv.config();
+
+const client = new MongoClient(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+client.connect().then(() => console.debug("DBConnection success!"))
+    .catch((err) => {
+        console.log(err);
+    });
 
 app.use(
     morgan(function (tokens, req, res) {
@@ -26,18 +36,14 @@ app.use(
     })
 );
 
-mongoose
-    .connect(process.env.MONGO_URL)
-    .then(() => console.debug("DBConnection success!"))
-    .catch((err) => {
-        console.log(err);
-    });
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
 
 app.use(express.json());
+
+app.use(cors());
 
 app.use("/api/auth/", auth);
 app.use("/api/movies/", movie);
