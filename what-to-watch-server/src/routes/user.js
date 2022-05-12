@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/User");
-const UserLists = require("../models/User'sLists");
+const UserLists = require("../models/User\'sLists");
 const CryptoJS = require("crypto-js");
 const {verifyToken} = require("../verifyToken");
 const {use} = require("express/lib/router");
