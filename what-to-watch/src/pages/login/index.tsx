@@ -1,11 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NextComponentType} from 'next';
 import signupStyles from '@pages/signup/signup.module.scss';
 import formStyles from '@styles/components/forms.module.scss';
 import buttonStyles from '@styles/components/Buttons.module.scss';
 import styles from './login.module.scss';
+import authService from '@services/integrations/auth.service';
+import React_2 from 'framer-motion/dist/framer-motion';
 
 const LoginPage: NextComponentType = () => {
+    const login = () => {
+       authService.login().then((resss) => {
+           console.log("H",resss)
+       })
+    }
+    useEffect(() => {
+        login()
+    })
     return (
         <div className={signupStyles.signupContainer}>
             <div className={`${signupStyles.signupWrapper} ${styles.loginWrapper}`}>
