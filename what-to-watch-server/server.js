@@ -5,11 +5,11 @@ const dotenv = require("dotenv");
 const morgan = require('morgan');
 const MongoClient = require("mongodb").MongoClient;
 // const uploadImage = require("./routes/image");
-const users = require("./routes/user");
-const auth = require("./routes/auth");
-const movie = require("./routes/movies");
-const series = require("./routes/series");
-const lists = require("./routes/lists");
+const users = require("./src/routes/user");
+const auth = require("./src/routes/auth");
+const movie = require("./src/routes/movies");
+const series = require("./src/routes/series");
+const lists = require("./src/routes/lists");
 
 const bodyParser = require("body-parser");
 
