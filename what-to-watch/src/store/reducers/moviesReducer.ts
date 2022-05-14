@@ -1,4 +1,4 @@
-import {GET_MOVIES} from '@app-redux/types';
+import {GET_MOVIES} from '../types';
 
 const initialState: {movies:any[], loading: boolean} = {
     movies:[],

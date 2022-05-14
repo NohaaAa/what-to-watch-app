@@ -7,10 +7,12 @@ import movieImg from '@images/thumbnails/the-great-lands/regular/large.jpg';
 import BookmarkIcon from '@images/icon-bookmark-empty.svg';
 import buttonStyles from '@styles/components/Buttons.module.scss';
 import PlayIcon from '@images/icon-play.svg';
-
+import {IListItem} from '@interfaces/lists.interface';
+import environments from '@environments/index';
 const MovieCard:NextComponentType<NextPageContext,
     any,
-    { movie?: any }> = ({ movie }) => {
+    { movie: IListItem }> = ({ movie }) => {
+    const movieImageURL = `${environments.imagesURL}/${movie.thumbnail.trending.large}`
     return (
         <div className={styles.movieCardContainer}>
             <button className={`${buttonStyles.btnRounded} ${buttonStyles.btn} ${styles.movieBookmark}`}>
@@ -23,15 +25,15 @@ const MovieCard:NextComponentType<NextPageContext,
                         <span>Play</span>
                     </button>
                 </div>
-                <Image src={movieImg} alt='movie' layout={'responsive'}/>
+                <Image src={movieImageURL} alt='movie' layout={'fill'} />
             </div>
             <div className={styles.movieCardBody}>
                 <ul className={styles.movieAttributes}>
-                    <li>2019</li>
-                    <li><span>•</span> <MovieIcon/>Movie</li>
-                    <li><span>•</span> PG</li>
+                    <li>{movie.year}</li>
+                    <li><span>•</span> <MovieIcon/>{movie.category}</li>
+                    <li><span>•</span>{movie.rating}</li>
                 </ul>
-                <h3 className={styles.movieTitle}>The Great Lands</h3>
+                <h3 className={styles.movieTitle}>{movie.title}</h3>
             </div>
         </div>
     )

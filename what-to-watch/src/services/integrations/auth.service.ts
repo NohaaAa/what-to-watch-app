@@ -3,7 +3,7 @@ import axios from 'axios';
 const AuthService = () => {
     return {
         login: (): Promise<any> => {
-            return axios.post('https://what-to-watch-server-nohaaaa.vercel.app/api/auth/login', {
+            return axios.post('https://what-to-watch-server.herokuapp.com/api/auth/login', {
                 email: "test-1@gmail.com",
                 password: "admin_111"
             }, {

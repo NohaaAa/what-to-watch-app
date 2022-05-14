@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const dotenv = require("dotenv");
 const morgan = require('morgan');
-const MongoClient = require("mongodb").MongoClient;
+const mongoose = require("mongoose");
 // const uploadImage = require("./routes/image");
 const users = require("./src/routes/user");
 const auth = require("./src/routes/auth");
@@ -14,16 +14,12 @@ const lists = require("./src/routes/lists");
 const bodyParser = require("body-parser");
 
 dotenv.config();
-
-const client = new MongoClient(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
-client.connect().then(() => console.debug("DBConnection success!"))
+mongoose
+    .connect(process.env.MONGO_URL)
+    .then(() => console.debug("DBConnection success!"))
     .catch((err) => {
         console.log(err);
     });
-
 app.use(
     morgan(function (tokens, req, res) {
         return [

@@ -2,7 +2,7 @@ import '@styles/globals.scss'
 import type { AppProps } from 'next/app'
 import AppWrapper from '@components/app-wrapper';
 import {Provider} from 'react-redux';
-import {store, wrapper} from '@app-redux/store';
+import {store, wrapper} from '../src/store/store';
 
 function WhatToWatchApp({ Component, pageProps }: AppProps) {
   return (

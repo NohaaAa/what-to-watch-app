@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_MOVIES} from '@app-redux/types';
+import {GET_MOVIES} from '../types';
 
 export const getAllMovies = () => async () => {
     try {
