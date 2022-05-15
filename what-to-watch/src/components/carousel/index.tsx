@@ -24,7 +24,7 @@ const Carousel: NextComponentType<NextPageContext,
     });
     const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
     const [selectedIndex, setSelectedIndex] = useState(0);
-    
+
     useEffect(() => {
         if (emblaApi) {
             setTimeout(() => {
