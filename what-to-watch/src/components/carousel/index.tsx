@@ -7,8 +7,8 @@ import TrendingCard from '@components/trending-card';
 
 const Carousel: NextComponentType<NextPageContext,
     any,
-    { slides:IListItem[], slidesScrollSize?: number, hasScrollSnap?: boolean }>
-    = ({children, slides,slidesScrollSize, hasScrollSnap}) => {
+    { carouselTitle: string, slidesScrollSize?: number, hasScrollSnap?: boolean }>
+    = ({children,carouselTitle, slidesScrollSize, hasScrollSnap}) => {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: false,
         align: 'start',
@@ -75,15 +75,10 @@ const Carousel: NextComponentType<NextPageContext,
 
     return (
         <div className={styles.carouselWrapper}>
+            <h1 className={styles.carouselTitle}>{carouselTitle}</h1>
             <div className={styles.carouselViewport} ref={emblaRef}>
                 <div className={styles.carouselContainer}>
-                    {slides.map((item) => (
-                        <div className={styles.carouselSlide} key={item._id}>
-                            <div className={styles.carouselInner}>
-                               <TrendingCard item={item} />
-                            </div>
-                        </div>
-                    ))}
+                    {children}
                 </div>
             </div>
         </div>

@@ -9,10 +9,11 @@ import buttonStyles from '@styles/components/Buttons.module.scss';
 import PlayIcon from '@images/icon-play.svg';
 import {IListItem} from '@interfaces/lists.interface';
 import environments from '@environments/index';
+
 const MovieCard:NextComponentType<NextPageContext,
     any,
     { movie: IListItem }> = ({ movie }) => {
-    const movieImageURL = `${environments.imagesURL}/${movie.thumbnail.trending.large}`
+    const movieImageURL = `${environments.imagesURL}/${movie.thumbnail.regular.large}`
     return (
         <div className={styles.movieCardContainer}>
             <button className={`${buttonStyles.btnRounded} ${buttonStyles.btn} ${styles.movieBookmark}`}>

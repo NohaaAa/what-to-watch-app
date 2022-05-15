@@ -6,11 +6,22 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import {IList, IListItem} from '@interfaces/lists.interface';
 import {IInitialState} from '@interfaces/common.interface';
 
-const initialState:IInitialState = {
-    homeLists: {loading: true},
-    loading: true
-};
+export type AppState = ReturnType<typeof store.getState>;
 
+const initialState:IInitialState = {
+    homeLists: {
+        trends:{
+            items:[],
+            _id:'',
+            listName:''
+        },
+        recommends:{
+            items:[],
+            _id:'',
+            listName:''
+        },
+        loading: true}
+};
 const middleware = [thunk];
 
 export const store = createStore(

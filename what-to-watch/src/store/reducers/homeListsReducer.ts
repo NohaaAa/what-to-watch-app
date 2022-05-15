@@ -1,5 +1,4 @@
 import {GET_TRENDING, GET_RECOMMENDS,ERROR} from '../types';
-import {} from '../types';
 import {IList} from '@interfaces/lists.interface';
 
 const initialState: {trends?:IList, recommends?:IList, loading: boolean} = {loading: true};
