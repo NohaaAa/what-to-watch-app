@@ -3,9 +3,13 @@ import {applyMiddleware, createStore} from 'redux';
 import { createWrapper } from "next-redux-wrapper";
 import rootReducer from './reducers';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import {IListItem} from '@interfaces/lists.interface';
+import {IList, IListItem} from '@interfaces/lists.interface';
+import {IInitialState} from '@interfaces/common.interface';
 
-const initialState = {};
+const initialState:IInitialState = {
+    homeLists: {loading: true},
+    loading: true
+};
 
 const middleware = [thunk];
 

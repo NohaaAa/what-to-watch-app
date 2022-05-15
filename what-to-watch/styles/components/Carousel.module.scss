@@ -1,0 +1,37 @@
+.carouselWrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+.carouselSlide {
+  position: relative;
+  padding-left: 10px;
+}
+.carouselViewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carouselViewport.isDraggable {
+  cursor: grab;
+}
+
+.carouselViewport.isDragging {
+  cursor: grabbing;
+}
+
+.carouselContainer {
+  display: flex;
+  gap: 40px;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.carouselInner {
+  position: relative;
+  overflow: hidden;
+}
+
+

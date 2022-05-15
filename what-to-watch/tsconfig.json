@@ -31,6 +31,9 @@
       ],
       "@environments/*": [
         "src/environments/*"
+      ],
+      "@store/*": [
+        "src/store/*"
       ]
     },
     "target": "es5",
