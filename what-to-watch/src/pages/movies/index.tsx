@@ -6,7 +6,6 @@ import {getAllMovies} from '@store/actions/movies';
 import MovieCard from '@components/movie-card';
 import {IMovie} from '@interfaces/movies.interface';
 import moviesStyles from './movies.module.scss';
-import homeStyles from '@pages/home/home.module.scss';
 import {InfinitySpin} from 'react-loader-spinner';
 import spinnerStyle from '@styles/components/Spinner.module.scss';
 
