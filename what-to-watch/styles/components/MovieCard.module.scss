@@ -40,7 +40,7 @@
       width: 220px;
       height: 140px;
     }
-    @media(max-width: 375px) {
+    @media(max-width: 376px) {
       width: 164px;
       height: 110px;
     }
@@ -68,7 +68,7 @@
         opacity: 0.75;
         font-size: 13px;
         font-weight: 300;
-        @media(max-width: 375px) {
+        @media(max-width: 376px) {
           font-size: 11px;
         }
 
@@ -87,7 +87,7 @@
     .movieTitle {
       margin: 5px auto 0;
       font-weight: 500;
-      @media(max-width: 375px) {
+      @media(max-width: 376px) {
         font-size: 14px;
       }
     }

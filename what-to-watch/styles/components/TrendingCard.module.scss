@@ -3,14 +3,14 @@
   height: 230px;
   position: relative;
   cursor: pointer;
-  @media(max-width: 375px) {
+  @media(max-width: 376px)  {
     width: 240px;
     height: 140px;
   }
   .trendingCardImg {
     width: 470px;
     height: 230px;
-    @media(max-width: 375px) {
+    @media(max-width: 376px)  {
       width: 240px;
       height: 140px;
     }
@@ -34,14 +34,14 @@
     justify-content: space-between;
     border-radius: 8px;
     padding: 16px 24px 24px;
-    @media(max-width: 375px) {
+    @media(max-width: 376px)  {
       padding: 8px 16px 16px;
     }
     .trendingCardAttributes {
       .movieTitle {
         margin: 0 !important;
         font-weight: 500;
-        @media(max-width: 375px) {
+        @media(max-width: 376px)  {
           font-size: 15px;
         }
       }
@@ -57,7 +57,7 @@
           opacity: 0.75;
           font-size: 15px;
           font-weight: 300;
-          @media(max-width: 375px) {
+          @media(max-width: 376px)  {
             font-size: 12px;
           }
 

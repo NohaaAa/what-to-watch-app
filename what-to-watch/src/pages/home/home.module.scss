@@ -4,8 +4,11 @@
   gap:40px;
   width: 100%;
   flex-wrap: wrap;
-  @media(max-width: 768px) {
+  @media(max-width: 769px) {
     gap: 29px;
+  }
+  @media(max-width: 376px) {
+    gap: 14px;
   }
 }
 .listTitle {
