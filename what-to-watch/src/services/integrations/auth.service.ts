@@ -1,21 +1,34 @@
-import axios from 'axios';
+import {ILoginObj, ISignupObj, IUser} from '@interfaces/user.interface';
+import HttpRequest from '@services/integrations/http-request';
 
 const AuthService = () => {
     return {
-        login: (): Promise<any> => {
-            return axios.post('https://what-to-watch-server.herokuapp.com/api/auth/login', {
-                email: "test-1@gmail.com",
-                password: "admin_111"
-            }, {
-                headers: {
-                    // 'Authorization': `Basic ${token}`
-                },
-            }).then((res) => {
-                console.log(res)
+        login: (loginObj: ILoginObj): Promise<IUser> => {
+            return HttpRequest({
+                endpoint: 'auth/login',
+                method: 'post',
+                receiver: 'login',
+                sender: 'login',
+                body: {
+                    email: loginObj.email,
+                    password: loginObj.password
+                }
+            })
+        },
+        signup: (signupObj: ISignupObj): Promise<IUser> => {
+            return HttpRequest({
+                endpoint: 'auth/signup',
+                method: 'post',
+                receiver: 'signup',
+                sender: 'signup',
+                body: {
+                    email: signupObj.email,
+                    password: signupObj.password,
+                    username: signupObj.username
+                }
             })
         }
     }
 };
 
 export default AuthService();
-const baseURL = 'https://00d6a5f7-4064-4ef6-85d5-b0e904554ce6.mock.pstmn.io/api';

@@ -3,7 +3,6 @@ import {applyMiddleware, createStore} from 'redux';
 import { createWrapper } from "next-redux-wrapper";
 import rootReducer from './reducers';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import {IList, IListItem} from '@interfaces/lists.interface';
 import {IInitialState} from '@interfaces/common.interface';
 
 export type AppState = ReturnType<typeof store.getState>;
@@ -20,7 +19,15 @@ const initialState:IInitialState = {
             _id:'',
             listName:''
         },
-        loading: true}
+        loading: true},
+    moviesList: {
+        movies: [],
+        loading: true
+    },
+    seriesList: {
+        series: [],
+        loading: true
+    }
 };
 const middleware = [thunk];
 
