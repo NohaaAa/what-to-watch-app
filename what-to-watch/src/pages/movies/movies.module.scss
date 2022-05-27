@@ -1,0 +1,26 @@
+.moviesContainer {
+  margin: 35px auto 40px;
+  .listTitle {
+    font-weight: 300;
+    margin: 0 0 38px 0;
+    @media (max-width: 376px) {
+      font-size: 20px;
+    }
+    @media(max-width: 768px) {
+      margin-bottom: 24px;
+    }
+  }
+  .moviesListWrapper {
+    display: flex;
+    flex-direction: row;
+    gap:40px;
+    width: 100%;
+    flex-wrap: wrap;
+    @media(max-width: 769px) {
+      gap: 29px;
+    }
+    @media(max-width: 376px) {
+      gap: 14px;
+    }
+  }
+}

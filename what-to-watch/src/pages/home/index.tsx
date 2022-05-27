@@ -10,21 +10,22 @@ import TrendingCard from '@components/trending-card';
 import Carousel from '@components/carousel';
 import MovieCard from '@components/movie-card';
 import {IListItem} from '@interfaces/lists.interface';
+import spinnerStyle from '@styles/components/Spinner.module.scss';
 
 const HomePage: NextComponentType = () => {
     const trendsList: ReturnType<any> = useSelector<IInitialState>((state) => state.homeLists.trends);
     const recommendedList: ReturnType<any> = useSelector<IInitialState>((state) => state.homeLists.recommends);
-    const loadingData: ReturnType<any> = useSelector<IInitialState>((state) => state.homeLists.loading)
+    const isLoadingData: ReturnType<any> = useSelector<IInitialState>((state) => state.homeLists.loading)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getListOfTrends());
         dispatch(getListOfRecommended());
     }, [dispatch]);
-    console.log(loadingData)
+    console.log(isLoadingData)
     return (
         <>
-            {loadingData &&
-                <div className={homeStyles.spinner}>
+            {isLoadingData &&
+                <div className={spinnerStyle.spinner}>
                     <InfinitySpin color="#fc4747" width='auto'/>
                 </div>
                 }
