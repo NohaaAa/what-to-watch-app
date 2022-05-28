@@ -14,7 +14,15 @@
       background-color: var(--pure-white);
       color: var(--semi-dark-blue);
     }
+    &:disabled {
+      opacity: .5;
+      &:hover {
+        background-color: var(--red);
+        color: var(--pure-white);
+      }
+    }
   }
+
   &.btnIcon {
     background-color: transparent;
     svg {

@@ -1,7 +1,7 @@
-import {SIGN_IN, SIGN_UP, ERROR} from '@store/types';
+import {SIGN_IN, SIGN_UP, ERROR, LOGOUT} from '@store/types';
 import {IUser} from '@interfaces/user.interface';
 
-const initialState:{userInfo?: IUser, loading: boolean} = {loading: true}
+const initialState:{userInfo?: IUser, loading: boolean} = {userInfo:undefined, loading: true}
 const authorizationReducer = (state = initialState, action: {type: string, payload:IUser}) => {
     switch (action.type) {
         case SIGN_UP:
@@ -14,6 +14,12 @@ const authorizationReducer = (state = initialState, action: {type: string, paylo
             return  {
                 ...state,
                 userInfo: action.payload,
+                loading: false
+            }
+        case LOGOUT:
+            return {
+                ...state,
+                userInfo: action.payload ? null : '',
                 loading: false
             }
         case ERROR:

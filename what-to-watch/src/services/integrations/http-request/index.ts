@@ -6,6 +6,7 @@ const HttpRequest = (
     request: {endpoint: string, method: "post" | "get" | "put", sender: string, receiver: string, body?: Object, token?: string}
 ): Promise<any> => {
     const _apiUrl: string = environments.apiURL;
+
     const getUserFromStorage = (): string | null => {
         return sessionStorage.getItem('uuid');
     };

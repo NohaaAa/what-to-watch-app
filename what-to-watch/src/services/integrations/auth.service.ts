@@ -1,5 +1,6 @@
 import {ILoginObj, ISignupObj, IUser} from '@interfaces/user.interface';
 import HttpRequest from '@services/integrations/http-request';
+import {router} from 'next/client';
 
 const AuthService = () => {
     return {
@@ -25,6 +26,17 @@ const AuthService = () => {
                     email: signupObj.email,
                     password: signupObj.password,
                     username: signupObj.username
+                }
+            })
+        },
+        logout: (): Promise<any> => {
+            const uuid = sessionStorage.getItem('uuid');
+            return new Promise<any>((resolve, reject) => {
+                if(uuid) {
+                    sessionStorage.removeItem('uuid');
+                    resolve(true);
+                } else {
+                    reject(false);
                 }
             })
         }

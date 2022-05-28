@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import HomePage from '@pages/home';
-const Home: NextPage = () => {
+const Home: NextPage = (props) => {
   return (
     <div>
       <Head>
