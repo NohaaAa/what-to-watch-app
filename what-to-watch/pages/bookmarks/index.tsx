@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import BookmarksPage from '@pages/bookmarks';
 
 const Bookmarks: NextPage = () => {
     return (
@@ -9,7 +10,7 @@ const Bookmarks: NextPage = () => {
                 <meta name='description' content='whatToWatch' />
             </Head>
             <div className='base_page_wrapper'>
-                Hello Bookmarks
+                <BookmarksPage/>
             </div>
         </>
     );

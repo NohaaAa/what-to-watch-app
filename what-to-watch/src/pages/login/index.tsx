@@ -9,9 +9,7 @@ import {login} from '@store/actions/authorization';
 import {useDispatch, useSelector} from 'react-redux';
 import {IInitialState} from '@interfaces/common.interface';
 import {useRouter} from 'next/router';
-import {SIGN_IN} from '@store/types';
-import {IUser} from '@interfaces/user.interface';
-import {store} from '@store/store';
+
 
 const LoginPage: NextComponentType = () => {
     const [loginForm, setLoginForm] = useState({
@@ -24,7 +22,6 @@ const LoginPage: NextComponentType = () => {
     });
     const dispatch = useDispatch();
     const router = useRouter();
-    const [submitted, setSubmitted] = useState(false);
     const userInfo: ReturnType<any> = useSelector<IInitialState>((state) => state.userInfo);
     const onChangeFormValues = (event: any) => {
         setLoginForm(values => {
@@ -33,8 +30,6 @@ const LoginPage: NextComponentType = () => {
     }
     const validateFormValues = (event: any) => {
         const emailPattern = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-        const namePattern = /^[a-zA-Z\u0600-\u065F\u066A-\u06EF\u06FA-\u06FF_.\'-]+(([ ][a-zA-Z\u0600-\u065F\u066A-\u06EF\u06FA-\u06FF_.\'-])?[a-zA-Z\u0600-\u065F\u066A-\u06EF\u06FA-\u06FF_.\'-]*)*$/;
-        const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
         if (event.target.name === 'email') {
             setErrors(values =>
                 ({
