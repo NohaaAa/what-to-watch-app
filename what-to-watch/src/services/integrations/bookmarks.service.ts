@@ -4,25 +4,25 @@ import {IMovie} from '@interfaces/movies.interface';
 
 const BookmarksService = () => {
     return {
-        getAllBookmarkedMovies: (token: string): Promise<IMovie[]> => {
+        getAllBookmarkedMovies: (): Promise<IMovie[]> => {
             return HttpRequest({
                 endpoint: "users/movies/bookmark",
                 method: "get",
                 receiver: "movies/bookmark",
                 sender: 'bookmarks',
-                token: token
+                withToken: true
             });
         },
-        getAllBookmarkedSeries: (token: string): Promise<ISeries[]> => {
+        getAllBookmarkedSeries: (): Promise<ISeries[]> => {
             return HttpRequest({
                 endpoint: "users/series/bookmark",
                 method: "get",
                 receiver: "series/bookmark",
                 sender: 'bookmarks',
-                token: token
+                withToken: true
             });
         },
-        toggleItemInBookmarks: (sender:string, itemId: string,token: string, bookmarkItem: boolean): Promise<{result: boolean}> => {
+        toggleItemInBookmarks: (sender:string, itemId: string, bookmarkItem: boolean): Promise<{result: boolean}> => {
             return HttpRequest({
                 endpoint: "users/bookmark",
                 method: "post",
@@ -32,7 +32,7 @@ const BookmarksService = () => {
                     itemId: itemId,
                     save: bookmarkItem
                 },
-                token: token
+                withToken: true
             })
         }
     }

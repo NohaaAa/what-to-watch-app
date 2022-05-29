@@ -27,6 +27,11 @@ const initialState:IInitialState = {
     seriesList: {
         series: [],
         loading: true
+    },
+    bookmarkedItemsList: {
+        bookmarkedMovies: [],
+        bookmarkedSeries: [],
+        loading: true
     }
 };
 const middleware = [thunk];

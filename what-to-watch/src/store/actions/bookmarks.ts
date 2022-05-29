@@ -1,14 +1,18 @@
 import {dispatch} from 'jest-circus/build/state';
 import {IMovie} from '@interfaces/movies.interface';
 import bookmarksService from '@services/integrations/bookmarks.service';
-import {BOOKMARK_ITEM, ERROR, GET_BOOKMARKED_MOVIES, GET_BOOKMARKED_SERIES, UNBOOKMARK_ITEM} from '@store/types';
-import {store} from '@store/store';
+import {
+    BOOKMARK_ITEM,
+    ERROR,
+    GET_BOOKMARKED_MOVIES,
+    GET_BOOKMARKED_SERIES,
+    UNBOOKMARK_ITEM
+} from '@store/types';
 import {ISeries} from '@interfaces/series.interface';
-import {IInitialState} from '@interfaces/common.interface';
 
-let token: string;
+
 export const getBookmarkedMovies = () => async (dispatch: (arg0: {type: string, payload: string | IMovie[]}) => void) => {
-    await bookmarksService.getAllBookmarkedMovies(token).then((list) => {
+    await bookmarksService.getAllBookmarkedMovies().then((list) => {
         dispatch({
             type: GET_BOOKMARKED_MOVIES,
             payload: list
@@ -21,7 +25,7 @@ export const getBookmarkedMovies = () => async (dispatch: (arg0: {type: string, 
     })
 }
 export const getBookmarkedSeries = () => async (dispatch: (arg0: {type: string, payload: string | ISeries[]}) => void) => {
-    await bookmarksService.getAllBookmarkedSeries(token).then((list) => {
+    await bookmarksService.getAllBookmarkedSeries().then((list) => {
         dispatch({
             type: GET_BOOKMARKED_SERIES,
             payload: list
@@ -34,7 +38,7 @@ export const getBookmarkedSeries = () => async (dispatch: (arg0: {type: string, 
     })
 }
 export const addItemToBookmarks = (sender: string, itemId: string) => async (dispatch: (arg0: {type: string, payload: any}) => void) => {
-    await bookmarksService.toggleItemInBookmarks(sender, itemId, token, true).then((result) => {
+    await bookmarksService.toggleItemInBookmarks(sender, itemId,true).then((result) => {
         if(result) {
             dispatch({
                 type: BOOKMARK_ITEM,
@@ -54,7 +58,7 @@ export const addItemToBookmarks = (sender: string, itemId: string) => async (dis
     })
 }
 export const removeItemFromBookmarks = (sender: string, itemId: string) => async (dispatch: (arg0: {type: string, payload: any}) => void) => {
-    await bookmarksService.toggleItemInBookmarks(sender, itemId, token, false).then((result) => {
+    await bookmarksService.toggleItemInBookmarks(sender, itemId,false).then((result) => {
         if(result) {
             dispatch({
                 type: UNBOOKMARK_ITEM,

@@ -1,4 +1,4 @@
-import {NextComponentType} from 'next';
+import {NextComponentType, NextPageContext} from 'next';
 import {useDispatch, useSelector} from 'react-redux';
 import {IInitialState} from '@interfaces/common.interface';
 import React, {useEffect} from 'react';
@@ -11,10 +11,10 @@ import MovieCard from '@components/movie-card';
 import {IMovie} from '@interfaces/movies.interface';
 
 const BookmarksPage: NextComponentType = () => {
-    // const bookmarkedMoviesList: ReturnType<any> = useSelector<IInitialState>((state) => state.bookmarkedMoviesList.list);
-    // const bookmarkedSeriesList: ReturnType<any> = useSelector<IInitialState>((state) => state.bookmarkedSeriesList.list);
-    // const isLoadingMovies: ReturnType<any> = useSelector<IInitialState>((state) => state.bookmarkedMoviesList.loading)
-    // const isLoadingSeries: ReturnType<any> = useSelector<IInitialState>((state) => state.bookmarkedSeriesList.loading)
+    const bookmarkedMoviesList: ReturnType<any> = useSelector<IInitialState>((state) => state.bookmarkedItemsList.bookmarkedMovies);
+    const bookmarkedSeriesList: ReturnType<any> = useSelector<IInitialState>((state) => state.bookmarkedItemsList.bookmarkedSeries);
+    const isLoadingMovies: ReturnType<any> = useSelector<IInitialState>((state) => state.bookmarkedItemsList.loading)
+    const isLoadingSeries: ReturnType<any> = useSelector<IInitialState>((state) => state.bookmarkedItemsList.loading)
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -25,29 +25,29 @@ const BookmarksPage: NextComponentType = () => {
         <>
             <div className={bookmarksStyles.bookmarksContainer}>
                 <h1 className={bookmarksStyles.listTitle}>Bookmarked Movies</h1>
-                {/*{isLoadingMovies &&*/}
-                {/*    <div className={spinnerStyle.spinner}>*/}
-                {/*        <InfinitySpin color="#fc4747" width='auto'/>*/}
-                {/*    </div>*/}
-                {/*}*/}
+                {isLoadingMovies &&
+                    <div className={spinnerStyle.spinner}>
+                        <InfinitySpin color="#fc4747" width='auto'/>
+                    </div>
+                }
                 <div className={bookmarksStyles.bookmarksListWrapper}>
-                    {/*{bookmarkedMoviesList.map((item: IMovie) => {*/}
-                    {/*    return <MovieCard movie={item} key={item._id}/>*/}
-                    {/*})}*/}
+                    {bookmarkedMoviesList && bookmarkedMoviesList.map((item: IMovie) => {
+                        return item && <MovieCard movie={item} key={item._id}/>
+                    })}
                 </div>
             </div>
             <div className={bookmarksStyles.bookmarksContainer}>
                 <h1 className={bookmarksStyles.listTitle}>Bookmarked TV Series</h1>
-                {/*{isLoadingSeries &&*/}
-                {/*    <div className={spinnerStyle.spinner}>*/}
-                {/*        <InfinitySpin color="#fc4747" width='auto'/>*/}
-                {/*    </div>*/}
-                {/*}*/}
-                {/*<div className={bookmarksStyles.bookmarksListWrapper}>*/}
-                {/*    {bookmarkedSeriesList.map((item: ISeries) => {*/}
-                {/*        return <MovieCard movie={item} key={item._id}/>*/}
-                {/*    })}*/}
-                {/*</div>*/}
+                {isLoadingSeries &&
+                    <div className={spinnerStyle.spinner}>
+                        <InfinitySpin color="#fc4747" width='auto'/>
+                    </div>
+                }
+                <div className={bookmarksStyles.bookmarksListWrapper}>
+                    {bookmarkedSeriesList && bookmarkedSeriesList.map((item: ISeries) => {
+                        return item && <MovieCard movie={item} key={item._id}/>
+                    })}
+                </div>
             </div>
         </>
     )

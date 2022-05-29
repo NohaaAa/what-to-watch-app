@@ -8,7 +8,7 @@ export const login = (loginData: ILoginObj) => async (dispatch: (arg0: { type: s
             type: SIGN_IN,
             payload: userInfo
         });
-        sessionStorage.setItem('uuid', userInfo._id);
+        sessionStorage.setItem('token', userInfo.accessToken);
     }).catch((err) => {
         dispatch({
             type: ERROR,

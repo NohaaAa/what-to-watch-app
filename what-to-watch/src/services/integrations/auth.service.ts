@@ -30,10 +30,10 @@ const AuthService = () => {
             })
         },
         logout: (): Promise<any> => {
-            const uuid = sessionStorage.getItem('uuid');
+            const uuid = sessionStorage.getItem('token');
             return new Promise<any>((resolve, reject) => {
                 if(uuid) {
-                    sessionStorage.removeItem('uuid');
+                    sessionStorage.removeItem('token');
                     resolve(true);
                 } else {
                     reject(false);
