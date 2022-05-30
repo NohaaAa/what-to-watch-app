@@ -30,12 +30,14 @@ const userBookmarksReducer = (state = initialState, action: {type: string, paylo
             return {
                 ...state,
                 bookmarkedSeries: state.bookmarkedSeries,
+                bookmarkedMovies: state.bookmarkedMovies,
                 loading: false
             }
         case UNBOOKMARK_ITEM:
             return {
                 ...state,
-                bookmarkedSeries: state.bookmarkedMovies,
+                bookmarkedSeries: (action.payload.itemCategory === 'TV Series') ? state.bookmarkedSeries?.filter(item => item._id !== action.payload.itemId): state.bookmarkedSeries,
+                bookmarkedMovies: (action.payload.itemCategory === 'Movie') ? state.bookmarkedMovies?.filter(item => item._id !== action.payload.itemId): state.bookmarkedMovies,
                 loading: false
             }
         case ERROR:

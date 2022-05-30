@@ -108,5 +108,15 @@
     svg {
       fill: none;
     }
+    &.bookmarked {
+      svg {
+        fill: var(--pure-white);
+      }
+      &:hover {
+        svg {
+          fill: var(--dark-blue);
+        }
+      }
+    }
   }
 }

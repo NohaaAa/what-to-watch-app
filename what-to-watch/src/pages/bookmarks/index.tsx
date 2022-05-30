@@ -5,7 +5,12 @@ import React, {useEffect} from 'react';
 import bookmarksStyles from './bookmarks.module.scss';
 import {InfinitySpin} from 'react-loader-spinner';
 import spinnerStyle from '@styles/components/Spinner.module.scss';
-import {getBookmarkedMovies, getBookmarkedSeries} from '@store/actions/bookmarks';
+import {
+    addItemToBookmarks,
+    getBookmarkedMovies,
+    getBookmarkedSeries,
+    removeItemFromBookmarks
+} from '@store/actions/bookmarks';
 import {ISeries} from '@interfaces/series.interface';
 import MovieCard from '@components/movie-card';
 import {IMovie} from '@interfaces/movies.interface';
@@ -17,10 +22,12 @@ const BookmarksPage: NextComponentType = () => {
     const isLoadingSeries: ReturnType<any> = useSelector<IInitialState>((state) => state.bookmarkedItemsList.loading)
 
     const dispatch = useDispatch();
+
     useEffect(() => {
-        dispatch(getBookmarkedMovies())
-        dispatch(getBookmarkedSeries())
-    }, [dispatch]);
+            dispatch(getBookmarkedMovies())
+            dispatch(getBookmarkedSeries())
+        }, [dispatch]);
+
     return (
         <>
             <div className={bookmarksStyles.bookmarksContainer}>
@@ -31,8 +38,8 @@ const BookmarksPage: NextComponentType = () => {
                     </div>
                 }
                 <div className={bookmarksStyles.bookmarksListWrapper}>
-                    {bookmarkedMoviesList && bookmarkedMoviesList.map((item: IMovie) => {
-                        return item && <MovieCard movie={item} key={item._id}/>
+                    {bookmarkedMoviesList && bookmarkedMoviesList.map((item: IMovie, index:number) => {
+                        return item && <MovieCard movie={item} key={item._id + 2} index={index}/>
                     })}
                 </div>
             </div>
@@ -44,8 +51,8 @@ const BookmarksPage: NextComponentType = () => {
                     </div>
                 }
                 <div className={bookmarksStyles.bookmarksListWrapper}>
-                    {bookmarkedSeriesList && bookmarkedSeriesList.map((item: ISeries) => {
-                        return item && <MovieCard movie={item} key={item._id}/>
+                    {bookmarkedSeriesList && bookmarkedSeriesList.map((item: ISeries, index:number) => {
+                        return item && <MovieCard movie={item} key={item._id + 2} index={index}/>
                     })}
                 </div>
             </div>

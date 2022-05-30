@@ -57,12 +57,12 @@ export const addItemToBookmarks = (sender: string, itemId: string) => async (dis
         });
     })
 }
-export const removeItemFromBookmarks = (sender: string, itemId: string) => async (dispatch: (arg0: {type: string, payload: any}) => void) => {
-    await bookmarksService.toggleItemInBookmarks(sender, itemId,false).then((result) => {
+export const removeItemFromBookmarks = (sender: string, item: ISeries | IMovie) => async (dispatch: (arg0: {type: string, payload: any}) => void) => {
+    await bookmarksService.toggleItemInBookmarks(sender, item._id,false).then((result) => {
         if(result) {
             dispatch({
                 type: UNBOOKMARK_ITEM,
-                payload: result
+                payload: {itemId: item._id, itemCategory: item.category}
             });
         } else {
             dispatch({
